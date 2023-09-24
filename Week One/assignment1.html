@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <title>Diwali Canvas</title>
+<head>
+  <style>
+    canvas {
+      background-color: black;
+      border: 2px solid grey;
+      display: block;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="can" width="500" height="500"></canvas>
+
+  <script>
+    var ctx = document.getElementById('can').getContext('2d');
+    ctx.font = 'bold 40px Arial';
+    ctx.fillStyle = 'yellow';
+    ctx.fillText('Happy Deepavali', 100, 230);
+
+    function drawStar(x, y, radius, ends, color) {
+      ctx.beginPath();
+      ctx.moveTo(x, y + radius);
+      var i = 0;
+      
+      for (i = 0; i < ends; i++) {
+        x = x + radius * Math.cos((i * 2 * Math.PI) / ends);
+        y = y + radius * Math.sin((i * 2 * Math.PI) / ends);
+        ctx.lineTo(x, y);
+        x = x - radius * Math.cos((i * 2 * Math.PI) / ends);
+        y = y - radius * Math.sin((i * 2 * Math.PI) / ends);
+        x = x + radius * Math.cos(((i + 1) * 2 * Math.PI) / ends);
+        y = y + radius * Math.sin(((i + 1) * 2 * Math.PI) / ends);
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(x, y + radius);
+      ctx.closePath();
+      
+      ctx.strokeStyle = color;
+      ctx.stroke();
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+
+    function generateStars() {
+      var numStars = 50;
+      var stars = [];
+
+      for (var i = 0; i < numStars; i++) {
+        var x = Math.random() * 500;
+        var y = Math.random() * 500;
+        var radius = Math.random() * 6;
+        var ends = 6; 
+        var color = Math.random() > 0.5 ? 'white' : 'grey'; // Initial color
+
+        stars.push({ x, y, radius, ends, color });
+        drawStar(x, y, radius, ends, color);
+      }
+
+      // Periodically change star colors for blinking effect
+      setInterval(function () {
+        stars.forEach(function (star) {
+          star.color = Math.random() > 0.5 ? 'white' : 'grey';
+          drawStar(star.x, star.y, star.radius, star.ends, star.color);
+        });
+      }, 100); // Change colors every 1 second (adjust as needed)
+    }
+
+    function drawRocket(x, y) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + 10, y - 30);
+      ctx.lineTo(x - 10, y - 30);
+      ctx.closePath();
+      ctx.fillStyle = 'coral';
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + 5, y + 10);
+      ctx.lineTo(x - 5, y + 10);
+      ctx.closePath();
+      ctx.fillStyle = 'yellow';
+      ctx.fill();
+    }
+
+    function generateRockets() {
+      const numRockets = 7;
+      const canvasWidth = 500;
+      const canvasHeight = 500;
+
+      for (let i = 0; i < numRockets; i++) {
+        const x = Math.random() * canvasWidth;
+        const y = canvasHeight - 50 - Math.random() * 200;
+
+        drawRocket(x, y);
+      }
+    }
+
+    generateStars();
+    generateRockets();
+
+  </script>
+</body>
+</html>

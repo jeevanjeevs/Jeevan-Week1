@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid</title>
+    <style>
+        h1{
+            text-align: center;
+            
+        }
+        body {
+            
+            margin: 20px 50px;
+            padding: 5px 5px;
+            background-color: antiquewhite;
+        }
+
+        .images {
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: grey;
+            border: 1px solid #ddd;
+            
+        }
+
+        .image {
+            text-align: center;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>Avengers Assembled</h1>
+
+    <section class="images">
+
+        <figure class="image">
+            <img src="images/multiverse.jpg">
+            <figcaption><h2>I believe we exist in a multiverse of universes</h2></figcaption>
+        </figure>
+
+        <figure class="image">
+            <img src="images/cosmic energy.jpg">
+            <figcaption><h2> energy is the Source, the fabric that forms the universe.</h2></figcaption>
+        </figure>
+        
+        <figure class="image">
+            <img src="images/antman.jpg">
+            <figcaption><h2>Shortest Avenger</h2></figcaption>
+        </figure>
+        <figure class="images">
+            <img src="images/blackpanther.jpg">
+            <br>
+            <figcaption><h2>Wakandan King</h2></figcaption>
+        </figure>
+        <figure class="image">
+            <img src="images/hawkeye.jpg">
+            <figcaption><h2>Sharpest Sniper</h2></figcaption>
+        </figure>
+        <figure class="image">
+            <img src="images/ironman.jpg">
+            <figcaption><h2>Love You 3000</h2></figcaption>
+        </figure>
+        <figure class="image">
+            <img src="images/captainamerica.jpg">
+            <figcaption><h2>Real Hero</h2></figcaption>
+        </figure>
+        <figure class="image">
+            <img src="images/hulk.jpg" >
+            <figcaption><h2>Strongest Avenger</h2></figcaption>
+        </figure>
+        <figure class="image">
+            <img src="images/spiderman.jpg" >
+            <figcaption><h2>Future Hero</h2></figcaption>
+        </figure>
+        <figure class="image">
+            <img src="images/thor.jpg" >
+            <figcaption><h2>God of Thunder</h2></figcaption>
+        </figure>
+        <figure class="image">
+            <img src="images/vision.jpg" >
+            <figcaption><h2>Future ogf AI</h2></figcaption>
+        </figure>
+        <figure class="image">
+            <img src="images/falcon.jpg" >
+            <figcaption><h2>Jnr Captain America</h2></figcaption>
+        </figure>
+    </section>
+</body>
+</html>

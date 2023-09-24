@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration</title>
+    <style>
+        h1 {
+            display: block;
+
+            margin: 10 ;
+
+            text-align: center;
+            
+        }
+        body{
+            /* background-color: aqua; */
+            border: 2px solid black;
+            margin: 50px 400px;
+            
+            /* display: inline-block; */
+
+            /* display: grid;
+            grid-template-columns: 33.fr 33.fr 33.fr; */
+        }
+        form{
+            margin: 5px 20px;
+        }
+
+        
+
+    </style>
+
+    <script>
+        function changeHandler(source){
+
+            document.getElementById("out_"+source.type).value=source.value
+        }     
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>New Employee Registration</h1>
+    <hr>
+    <form id="fr">
+
+        <div>
+        <label for="Fname" >First Name</label>
+        <input required type="text" id="Fname" name="Fname">
+        </div>
+        <br>
+
+        <div>
+        <label for="Lname" >Last Name</label>
+        <input required type="text" id="Lname" name="Lname">
+        </div>
+        <br>
+
+        <div>
+        <label for="email" >Email</label>
+        <input required  placeholder="xyz@gmail.com" type="email" id="email" name="email">
+        </div>
+        <br>
+
+        <div>
+            <label for ="sex">Gender</label>
+            <input type="radio" name="sex" id="sex" value="Male" required >Male
+            <input type="radio" name="sex" id="sex" value="Female">Female
+            <input type="radio" name="sex" id="sex" value="Other">Other
+
+        </div>
+        <br>
+
+        <div>
+            <label for="age">Age</label>
+            <input required  min="20" max="60"  id="age" name="age" type="number">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="Place of birth">Place of Birth:</label>
+            <input  required list="Place-Of-Birth" id="PlaceOfBirth" name="PlaceOfBirth" />
+
+            <datalist id="Place-Of-Birth">
+            <option value="Bangalore"></option>
+            <option value="Jaipur"></option>
+            <option value="Sambalpur"></option>
+            <option value="Mangalore"></option>
+            <option value="Patna"></option>
+            <option value="Srinagar"></option>
+            <option value="Khanpur"></option>
+            <option value="Guwahati"></option>
+            <option value="Hassan"></option>
+            <option value="Ramnagar"></option>
+            <option value="Bidar"></option>
+            <option value="Tumkur"></option>
+          
+
+            </datalist>
+
+        </div>
+
+        <br>
+
+        <div>
+            <label for="resume">Select your resume</label>
+            <input type="file" required id="resume" name="resume" accept=".pdf, .doc, .docx">
+ 
+        </div>
+
+        <br>
+
+        <div>
+            <label>Select Positions:</label><br>
+            <input type="checkbox" id="developer" name="positions[]" value="developer" >
+            <label for="developer">Developer</label>
+            <br>
+             <input type="checkbox" id="designer" name="positions[]" value="designer">
+            <label for="designer">Designer</label>
+            <br>
+ 
+            <input type="checkbox" id="testing_engineer" name="positions[]" value="testing_engineer">
+            <label for="testing_engineer">Testing Engineer</label>
+            <br>
+ 
+            <input type="checkbox" id="sales_support" name="positions[]" value="sales_support">
+            <label for="sales_support">Sales Support</label>
+            <br>
+ 
+            <input type="checkbox" id="hr" name="positions[]" value="hr">
+            <label for="hr">Human Resource</label><br>
+        </div>
+
+        <br>
+        <label for="date" >Tentative joining date</label>
+        <input required type="date" id="date" name="date">
+
+        <div>
+
+            <button type="submit" value="Submit">Submit</button>
+
+        </div>
+       
+    </form>
+
+    <script>
+
+        var uage= document.getElementById("age");
+        uage.setCustomValidity("you must enter your age");
+        uage.addEventListener("input",function(){
+
+            if(uage.value< 20){
+                uage.setCustomValidity("very young for our org");
+            }else if(uage.value > 60){
+                uage.setCustomValidity("very old for our org");
+            }else{
+                uage.setCustomValidity("");
+            }
+
+        });
+
+       
+    </script>
+
+</body>
+
+</html>

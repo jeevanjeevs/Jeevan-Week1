@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        canvas{
+            
+            border: 2px solid crimson;
+            
+            display: block;
+            margin: 100px 100px 200px 350px;
+            position: absolute;
+            
+            
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="500" height="500" id="can"></canvas>
+    <canvas width="500" height="500" id="can2"></canvas>
+    <canvas width="500" height="500" id="can3"></canvas>
+    <canvas width="500" height="500" id="can4"></canvas>
+    <canvas width="500" height="500" id="can5"></canvas>
+
+    
+
+
+    <script>
+        
+        var ctx = document.getElementById("can").getContext("2d");
+        const lineargradient = ctx.createLinearGradient(0, 0, 500, 500);
+       
+        lineargradient.addColorStop(0, "purple");          
+        lineargradient.addColorStop(1, "black");
+        
+        ctx.fillStyle = lineargradient;
+        
+        ctx.fillRect(0, 0, 500, 500);
+        
+        ctx.font = "50px impact";
+        ctx.fillStyle="grey";
+        ctx.fillText("Happy Deepavali", 80, 250);
+        
+        setInterval(function(){
+            
+            var circleX=Math.round(Math.random()*500);
+            var circleY=Math.round(Math.random()*500);
+            
+            
+            ctx.beginPath();
+            ctx.arc(circleX,circleY,1,0,(Math.PI/180)*360,true);
+            ctx.fillStyle="white";
+            ctx.closePath();
+            
+            ctx.stroke();
+            ctx.fill();
+            
+            
+            
+        },100);
+
+
+        var boxX=0;
+        var boxY=0;
+        var boxZ=0;
+        var boxA=0;
+        
+
+        var ctx2 = document.getElementById("can2").getContext("2d");
+
+        setInterval(function(){
+
+        ctx2.clearRect(0,0,500,500);
+        ctx2.fillStyle="Red";
+        ctx2.fillRect(boxX,300,70,30);
+        boxX +=2;
+        
+
+        var ctx3 = document.getElementById("can3").getContext("2d");
+        ctx3.clearRect(0,0,500,500);
+        ctx3.fillStyle="coral";
+        ctx3.fillRect(400,boxY,30,70);
+        boxY +=2;
+        
+        
+        
+        
+
+        },15);
+
+        var ctx4 = document.getElementById("can4").getContext("2d");
+        var ctx5 = document.getElementById("can5").getContext("2d");
+        setInterval(function(){
+
+        ctx4.clearRect(0,0,500,500);
+        ctx4.fillStyle="rgb(224, 192, 11)";
+        ctx4.fillRect(100,boxZ,20,50);
+        boxZ +=2;
+
+        
+        ctx5.clearRect(0,0,500,500);
+        ctx5.fillStyle="rgb(224, 192, 11)";
+        ctx5.fillRect(boxA,150,50,20);
+        boxA +=2;
+        
+        },20);
+  
+
+
+    </script>
+</body>
+</html>
